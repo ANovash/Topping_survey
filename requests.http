@@ -1,0 +1,63 @@
+# test validations
+###
+PUT http://localhost:8080/survey
+Content-Type: application/json
+
+{
+  "email": "testemail.com",
+  "toppings": []
+}
+
+###
+PUT http://localhost:8080/survey
+Content-Type: application/json
+
+{
+  "email": "test@email.com",
+  "toppings": ["longnametoppingXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"]
+}
+
+###
+GET http://localhost:8080/survey/testemail.com
+
+###
+GET http://localhost:8080/survey/any@email.com
+
+
+
+# test application
+###
+PUT http://localhost:8080/survey
+Content-Type: application/json
+
+{
+  "email": "test@email.com",
+  "toppings": ["Topping1", "Topping3"]
+}
+
+###
+PUT http://localhost:8080/survey
+Content-Type: application/json
+
+{
+  "email": "test2@email.com",
+  "toppings": ["Topping2", "Topping3"]
+}
+
+###
+PUT http://localhost:8080/survey
+Content-Type: application/json
+
+{
+  "email": "test@email.com",
+  "toppings": ["Topping2", "Topping3"]
+}
+
+###
+GET http://localhost:8080/survey
+
+###
+GET http://localhost:8080/survey/test@email.com
+
+
+
